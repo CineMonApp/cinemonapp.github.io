@@ -1,0 +1,12 @@
+baseURL: https://www.cinemon.app/
+languageCode: en-us
+title: CineMon - Professional video monitor for iOS and Mac
+theme: cinemon
+disableHugoGeneratorInject: true
+disableKinds:
+  - taxonomy
+caches:
+  images:
+    dir: :cacheDir/images
+uglyURLs:
+  app: true

@@ -59,7 +59,7 @@
   /* Card Slider - Swiper */
   var cardSlider = new Swiper(".card-slider", {
     autoplay: {
-      delay: 8000,
+      delay: 15000,
       disableOnInteraction: false,
     },
     loop: true,
@@ -85,7 +85,7 @@
   /* Text Slider - Swiper */
   var textSlider = new Swiper(".text-slider", {
     autoplay: {
-      delay: 10000,
+      delay: 15000,
       disableOnInteraction: false,
     },
     loop: true,
