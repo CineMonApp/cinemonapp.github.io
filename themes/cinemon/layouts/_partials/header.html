@@ -1,57 +1,41 @@
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-            <div class="container">
-                <!-- Image Logo -->
-                <a class="navbar-brand logo-image" href="/index.html">
-                    <img src="/images/CineMon-Logo-Horz-Dark-Bg-Small.png" alt="CineMon Logo"/>
+        <nav class="navbar bg-dark-gray/90 backdrop-blur-md" id="mainNav">
+            <div class="container-custom flex items-center justify-between py-4">
+                <!-- Logo -->
+                <a class="flex-shrink-0" href="/index.html">
+                    <img src="/images/CineMon-Logo-Horz-Dark-Bg-Small.png" alt="CineMon Logo" class="h-9 w-auto"/>
                 </a>
+                
+                <!-- Mobile menu button -->
                 <button
-                    class="navbar-toggler p-0 border-0"
+                    class="lg:hidden p-2 text-white focus:outline-none"
                     type="button"
-                    data-toggle="offcanvas">
-                    <span class="navbar-toggler-icon"></span>
+                    data-toggle="offcanvas"
+                    aria-label="Toggle navigation">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
                 </button>
 
-                <div
-                    class="navbar-collapse offcanvas-collapse"
-                    id="navbarsExampleDefault">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link page-scroll"
-                                href="/index.html"
-                                >APP</a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link page-scroll"
-                                href="/index.html#purchase"
-                                >DOWNLOAD</a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link page-scroll"
-                                href="/partners/"
-                                >PARTNERS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link page-scroll"
-                                href="https://docs.cinemon.app/docs/"
-                                >DOCS</a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link page-scroll"
-                                href="/index.html#footer"
-                                >CONTACT</a>
-                        </li>
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="/index.html" class="px-4 py-2 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">APP</a>
+                    <a href="/index.html#purchase" class="px-4 py-2 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">DOWNLOAD</a>
+                    <a href="/partners/" class="px-4 py-2 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">PARTNERS</a>
+                    <a href="https://docs.cinemon.app/docs/" class="px-4 py-2 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">DOCS</a>
+                    <a href="/index.html#footer" class="px-4 py-2 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">CONTACT</a>
+                </div>
+
+                <!-- Mobile Navigation -->
+                <div class="offcanvas-collapse fixed top-16 bottom-0 left-full w-full bg-dark-gray overflow-y-auto transition-transform duration-300 lg:hidden" id="navbarsExampleDefault">
+                    <ul class="flex flex-col p-4 space-y-2">
+                        <li><a href="/index.html" class="block px-4 py-3 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">APP</a></li>
+                        <li><a href="/index.html#purchase" class="block px-4 py-3 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">DOWNLOAD</a></li>
+                        <li><a href="/partners/" class="block px-4 py-3 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">PARTNERS</a></li>
+                        <li><a href="https://docs.cinemon.app/docs/" class="block px-4 py-3 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">DOCS</a></li>
+                        <li><a href="/index.html#footer" class="block px-4 py-3 text-sm font-semibold text-white/90 hover:text-turquoise transition-colors duration-200">CONTACT</a></li>
                     </ul>
                 </div>
-                <!-- end of navbar-collapse -->
             </div>
-            <!-- end of container -->
         </nav>
-        <!-- end of navbar -->
         <!-- end of navigation -->
-<!-- {{ partial "menu.html" (dict "menuID" "main" "page" .) }} -->

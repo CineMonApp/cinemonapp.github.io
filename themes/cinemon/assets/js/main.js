@@ -1,173 +1,202 @@
-/* Description: Custom JS file */
+/* Description: Custom JS file - Vanilla JavaScript */
 
-(function ($) {
+(function () {
   "use strict";
 
-  /* Navbar Scripts */
-  // jQuery to collapse the navbar on scroll
-  $(window).on("scroll load", function () {
-    if ($(".navbar").offset().top > 60) {
-      $(".fixed-top").addClass("top-nav-collapse");
-    } else {
-      $(".fixed-top").removeClass("top-nav-collapse");
+  /* Navbar is now always fixed with consistent styling - no scroll handling needed */
+
+  // Smooth scrolling for page-scroll links
+  document.addEventListener("click", function (e) {
+    if (e.target.matches("a.page-scroll") || e.target.closest("a.page-scroll")) {
+      const anchor = e.target.closest("a.page-scroll") || e.target;
+      const href = anchor.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
     }
   });
 
-  // jQuery for page scrolling feature - requires jQuery Easing plugin
-  $(function () {
-    $(document).on("click", "a.page-scroll", function (event) {
-      var $anchor = $(this);
-      $("html, body")
-        .stop()
-        .animate(
-          {
-            scrollTop: $($anchor.attr("href")).offset().top,
-          },
-          600,
-          "easeInOutExpo",
-        );
-      event.preventDefault();
-    });
+  // Offcanvas menu toggle
+  document.addEventListener("click", function (e) {
+    if (
+      e.target.matches('[data-toggle="offcanvas"]') ||
+      e.target.closest('[data-toggle="offcanvas"]') ||
+      (e.target.matches(".navbar-nav li a:not(.dropdown-toggle)") &&
+        window.innerWidth < 992)
+    ) {
+      const offcanvas = document.querySelector(".offcanvas-collapse");
+      if (offcanvas) {
+        offcanvas.classList.toggle("open");
+      }
+    }
   });
 
-  // offcanvas script from Bootstrap + added element to close menu on click in small viewport
-  $('[data-toggle="offcanvas"], .navbar-nav li a:not(.dropdown-toggle').on(
-    "click",
-    function () {
-      $(".offcanvas-collapse").toggleClass("open");
-    },
-  );
-
-  // hover in desktop mode
+  // Dropdown hover in desktop mode
   function toggleDropdown(e) {
-    const _d = $(e.target).closest(".dropdown"),
-      _m = $(".dropdown-menu", _d);
+    const dropdown = e.target.closest(".dropdown");
+    if (!dropdown) return;
+
+    const menu = dropdown.querySelector(".dropdown-menu");
+    const toggle = dropdown.querySelector('[data-toggle="dropdown"]');
+
     setTimeout(
       function () {
-        const shouldOpen = e.type !== "click" && _d.is(":hover");
-        _m.toggleClass("show", shouldOpen);
-        _d.toggleClass("show", shouldOpen);
-        $('[data-toggle="dropdown"]', _d).attr("aria-expanded", shouldOpen);
+        const shouldOpen = e.type !== "click" && dropdown.matches(":hover");
+        if (menu) {
+          menu.classList.toggle("show", shouldOpen);
+        }
+        dropdown.classList.toggle("show", shouldOpen);
+        if (toggle) {
+          toggle.setAttribute("aria-expanded", shouldOpen);
+        }
       },
       e.type === "mouseleave" ? 300 : 0,
     );
   }
-  $("body")
-    .on("mouseenter mouseleave", ".dropdown", toggleDropdown)
-    .on("click", ".dropdown-menu a", toggleDropdown);
+
+  document.body.addEventListener("mouseenter", function (e) {
+    if (e.target.closest(".dropdown")) toggleDropdown(e);
+  }, true);
+
+  document.body.addEventListener("mouseleave", function (e) {
+    if (e.target.closest(".dropdown")) toggleDropdown(e);
+  }, true);
+
+  document.body.addEventListener("click", function (e) {
+    if (e.target.matches(".dropdown-menu a")) {
+      toggleDropdown(e);
+    }
+  });
 
   /* Card Slider - Swiper */
-  var cardSlider = new Swiper(".card-slider", {
-    autoplay: {
-      delay: 15000,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    slidesPerView: 3,
-    spaceBetween: 70,
-    breakpoints: {
-      // when window is <= 767px
-      767: {
-        slidesPerView: 1,
+  if (typeof Swiper !== "undefined") {
+    var cardSlider = new Swiper(".card-slider", {
+      autoplay: {
+        delay: 15000,
+        disableOnInteraction: false,
       },
-      // when window is <= 991px
-      991: {
-        slidesPerView: 2,
-        spaceBetween: 40,
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
       },
-    },
-  });
-
-  /* Text Slider - Swiper */
-  var textSlider = new Swiper(".text-slider", {
-    autoplay: {
-      delay: 15000,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-
-  /* Details Lightbox - Magnific Popup */
-  $(".popup-with-move-anim").magnificPopup({
-    type: "inline",
-    fixedContentPos: true,
-    fixedBgPos: true,
-    overflowY: "auto",
-    closeBtnInside: true,
-    preloader: false,
-    midClick: true,
-    removalDelay: 300,
-    mainClass: "my-mfp-slide-bottom",
-  });
-
-  /* Video Lightbox - Magnific Popup */
-  $(".popup-youtube, .popup-vimeo").magnificPopup({
-    disableOn: 0,
-    type: "iframe",
-    mainClass: "mfp-fade",
-    removalDelay: 160,
-    preloader: false,
-    fixedContentPos: false,
-    iframe: {
-      patterns: {
-        youtube: {
-          index: "youtube.com/",
-          id: function (url) {
-            var m = url.match(/[\\?\\&]v=([^\\?\\&]+)/);
-            if (!m || !m[1]) return null;
-            return m[1];
-          },
-          src: "https://www.youtube.com/embed/%id%?autoplay=1",
+      slidesPerView: 3,
+      spaceBetween: 70,
+      breakpoints: {
+        767: {
+          slidesPerView: 1,
         },
-        vimeo: {
-          index: "vimeo.com/",
-          id: function (url) {
-            var m = url.match(
-              /(https?:\/\/)?(www.)?(player.)?vimeo.com\/([a-z]*\/)*([0-9]{6,11})[?]?.*/,
-            );
-            if (!m || !m[5]) return null;
-            return m[5];
-          },
-          src: "https://player.vimeo.com/video/%id%?autoplay=1",
+        991: {
+          slidesPerView: 2,
+          spaceBetween: 40,
         },
       },
-    },
+    });
+
+    /* Text Slider - Swiper */
+    var textSlider = new Swiper(".text-slider", {
+      autoplay: {
+        delay: 15000,
+        disableOnInteraction: false,
+      },
+      loop: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  }
+
+  /* Details Lightbox - Native Dialog */
+  document.addEventListener("click", function (e) {
+    const trigger = e.target.closest("[data-dialog-open]");
+    if (trigger) {
+      e.preventDefault();
+      const dialogId = trigger.getAttribute("data-dialog-open");
+      const dialog = document.getElementById(dialogId);
+      if (dialog) {
+        dialog.showModal();
+      }
+    }
+
+    const closeBtn = e.target.closest("[data-dialog-close]");
+    if (closeBtn) {
+      const dialog = closeBtn.closest("dialog");
+      if (dialog) {
+        dialog.close();
+      }
+    }
+  });
+
+  // Close dialog when clicking on backdrop
+  document.addEventListener("click", function (e) {
+    if (e.target.tagName === "DIALOG") {
+      const rect = e.target.getBoundingClientRect();
+      if (
+        e.clientX < rect.left ||
+        e.clientX > rect.right ||
+        e.clientY < rect.top ||
+        e.clientY > rect.bottom
+      ) {
+        e.target.close();
+      }
+    }
+  });
+
+  // Close dialog on Escape key (native behavior, but keeping for consistency)
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      document.querySelectorAll("dialog[open]").forEach(function (dialog) {
+        dialog.close();
+      });
+    }
   });
 
   /* Move Form Fields Label When User Types */
-  // for input and textarea fields
-  $("input, textarea").keyup(function () {
-    if ($(this).val() != "") {
-      $(this).addClass("notEmpty");
-    } else {
-      $(this).removeClass("notEmpty");
+  document.addEventListener("keyup", function (e) {
+    if (e.target.matches("input, textarea")) {
+      if (e.target.value !== "") {
+        e.target.classList.add("notEmpty");
+      } else {
+        e.target.classList.remove("notEmpty");
+      }
     }
   });
 
   /* Back To Top Button */
-  // create the back to top button
-  $("body").prepend(
-    '<a href="body" class="back-to-top page-scroll">Back to Top</a>',
-  );
-  var amountScrolled = 700;
-  $(window).scroll(function () {
-    if ($(window).scrollTop() > amountScrolled) {
-      $("a.back-to-top").fadeIn("500");
+  const backToTop = document.createElement("a");
+  backToTop.href = "#body";
+  backToTop.className = "back-to-top page-scroll";
+  backToTop.textContent = "Back to Top";
+  document.body.prepend(backToTop);
+
+  const amountScrolled = 700;
+  let backToTopVisible = false;
+
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset > amountScrolled) {
+      if (!backToTopVisible) {
+        backToTop.style.display = "block";
+        setTimeout(() => (backToTop.style.opacity = "1"), 10);
+        backToTopVisible = true;
+      }
     } else {
-      $("a.back-to-top").fadeOut("500");
+      if (backToTopVisible) {
+        backToTop.style.opacity = "0";
+        setTimeout(() => (backToTop.style.display = "none"), 500);
+        backToTopVisible = false;
+      }
     }
   });
 
   /* Removes Long Focus On Buttons */
-  $(".button, a, button").mouseup(function () {
-    $(this).blur();
+  document.addEventListener("mouseup", function (e) {
+    if (e.target.matches(".button, a, button")) {
+      e.target.blur();
+    }
   });
-})(jQuery);
+})();

@@ -8,6 +8,9 @@ node_modules
 dist
 tmp
 
+# Package lock files (keep package.json)
+package-lock.json
+
 # Executable may be added to repository
 hugo.exe
 hugo.darwin
@@ -15,3 +18,8 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# Local files
+MIGRATION_SUMMARY.md
+QUICK_START.md
+README.md
