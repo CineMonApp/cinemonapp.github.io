@@ -8,9 +8,6 @@ node_modules
 dist
 tmp
 
-# Package lock files (keep package.json)
-package-lock.json
-
 # Executable may be added to repository
 hugo.exe
 hugo.darwin
