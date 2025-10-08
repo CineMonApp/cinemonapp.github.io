@@ -148,10 +148,12 @@ a.white:hover {
 .pill {
     display: inline-block;
     padding: 0px 10px;
+    line-height: 1.1;
+    margin: 0;
     border-radius: 999px;
     background: linear-gradient(to bottom, #A299FF, #5f4fff);
-    /* font-size: 16px; */
     font-weight: 800;
+    letter-spacing: -0.05em;
     color: #111;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
