@@ -21,7 +21,7 @@ module.exports = {
         'dialog-overlay': 'rgba(0, 0, 0, 0.8)',
       },
       fontFamily: {
-        sans: ['"Open Sans"', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       fontSize: {
         'h1-large': ['3.5rem', { lineHeight: '4.375rem', letterSpacing: '-0.2px' }],
