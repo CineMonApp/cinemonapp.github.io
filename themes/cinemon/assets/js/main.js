@@ -167,13 +167,6 @@
     }
   });
 
-  /* Back To Top Button */
-  const backToTop = document.createElement("a");
-  backToTop.href = "#body";
-  backToTop.className = "back-to-top page-scroll";
-  backToTop.textContent = "Back to Top";
-  document.body.prepend(backToTop);
-
   const amountScrolled = 700;
   let backToTopVisible = false;
 

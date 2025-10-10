@@ -9,36 +9,36 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-dark-blue text-white font-sans;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-bold;
     letter-spacing: -0.2px;
   }
-  
+
   h1 {
     @apply text-[2.5rem] leading-[3.25rem];
   }
-  
+
   h2 {
     @apply text-[2.125rem] leading-[2.625rem];
   }
-  
+
   h3 {
     @apply text-[1.75rem] leading-[2.25rem];
   }
-  
+
   h4 {
     @apply text-2xl leading-8;
   }
-  
+
   h5 {
     @apply text-xl leading-[1.625rem];
   }
-  
+
   h6 {
     @apply text-base leading-[1.375rem];
   }
@@ -52,86 +52,86 @@
     line-height: 1.1;
     box-shadow: 0 4px 14px 0 rgba(102, 93, 239, 0.39);
   }
-  
+
   /* Buttons */
   .btn-solid-reg {
     @apply inline-block px-9 py-5 border-2 border-turquoise rounded-btn bg-gradient-to-br from-turquoise to-[#5548d9] text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl no-underline;
     box-shadow: 0 8px 24px rgba(102, 93, 239, 0.3);
   }
-  
+
   .btn-solid-reg:hover {
     box-shadow: 0 12px 32px rgba(102, 93, 239, 0.5);
   }
-  
+
   .btn-solid-lg {
     @apply inline-block px-11 py-6 border-2 border-turquoise rounded-btn bg-gradient-to-br from-turquoise to-[#5548d9] text-white font-semibold text-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl no-underline;
     box-shadow: 0 8px 24px rgba(102, 93, 239, 0.3);
   }
-  
+
   .btn-solid-lg:hover {
     box-shadow: 0 12px 32px rgba(102, 93, 239, 0.5);
   }
-  
+
   .btn-outline-reg {
     @apply inline-block px-9 py-5 border-2 border-white/30 rounded-btn bg-white/5 backdrop-blur-sm text-white font-semibold text-sm transition-all duration-300 hover:bg-white hover:text-dark-blue hover:scale-105 no-underline;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
-  
+
   .btn-outline-lg {
     @apply inline-block px-11 py-6 border-2 border-white/30 rounded-btn bg-white/5 backdrop-blur-sm text-white font-semibold text-sm transition-all duration-300 hover:bg-white hover:text-dark-blue hover:scale-105 no-underline;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
-  
+
   .btn-outline-sm {
     @apply inline-block px-6 py-4 border-2 border-white/30 rounded-btn bg-white/5 backdrop-blur-sm text-white font-semibold text-sm transition-all duration-300 hover:bg-white hover:text-dark-blue hover:scale-105 no-underline;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
-  
+
   /* Navigation */
   .navbar {
     @apply fixed top-0 left-0 right-0 z-50 transition-all duration-200;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
   }
-  
+
   /* Card styles */
   .feature-card {
     @apply bg-gradient-to-br from-dark-gray to-[#2a293d] rounded-2xl p-12 text-center transition-all duration-500 hover:transform hover:-translate-y-2 hover:scale-105;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05);
   }
-  
+
   .feature-card:hover {
     box-shadow: 0 20px 60px rgba(102, 93, 239, 0.2), 0 0 0 1px rgba(102, 93, 239, 0.2);
   }
-  
+
   /* Section spacing */
   .section-padding {
     @apply py-16 lg:py-20;
   }
-  
+
   /* Container max width */
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
-  
+
   /* Image transforms for hero section */
   .hero-image-3d {
     transform: perspective(1000px) rotateX(2deg) rotateY(15deg);
   }
-  
+
   /* Form inputs */
   .form-input {
     @apply w-full px-5 pt-5 pb-1 border border-border-gray bg-dark-gray text-white text-sm rounded transition-all duration-200 focus:border-hover-gray focus:outline-none hover:border-hover-gray;
   }
-  
+
   .form-textarea {
     @apply w-full h-56 px-5 pt-6 border border-border-gray bg-dark-gray text-white text-sm rounded transition-all duration-200 focus:border-hover-gray focus:outline-none hover:border-hover-gray;
   }
-  
+
   /* Lightbox styles */
   .lightbox-content {
     @apply bg-dark-gray rounded-lg p-12 max-w-6xl mx-auto;
   }
-  
+
   /* Swiper navigation buttons */
   .swiper-button-custom {
     @apply text-white opacity-75 hover:opacity-100 transition-opacity duration-200 cursor-pointer;
@@ -139,12 +139,12 @@
     width: 44px;
     height: 44px;
   }
-  
+
   /* Responsive text sizes */
   .text-p-large {
     @apply text-lg leading-7;
   }
-  
+
   .text-p-small {
     @apply text-sm leading-6;
   }
@@ -155,27 +155,22 @@
   .perspective-1000 {
     perspective: 1000px;
   }
-  
+
   /* Gradient backgrounds */
   .bg-gradient-purple {
     @apply bg-gradient-purple;
   }
-  
+
   /* Smooth scrolling offset for fixed navbar */
   .scroll-mt-nav {
     scroll-margin-top: 5rem;
   }
-  
-  /* Modern image shadows with glow */
-  .image-shadow-modern {
-    /* Removed box-shadow to avoid rectangular frame behind transparent PNGs with rounded corners */
-  }
-  
+
   /* Subtle section overlays */
   .section-overlay {
     position: relative;
   }
-  
+
   .section-overlay::before {
     content: '';
     position: absolute;
@@ -183,7 +178,7 @@
     background: linear-gradient(135deg, rgba(102, 93, 239, 0.03) 0%, transparent 50%, rgba(162, 153, 255, 0.03) 100%);
     pointer-events: none;
   }
-  
+
   /* Text gradient */
   .text-gradient {
     @apply bg-gradient-text;
@@ -191,12 +186,12 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* Hover lift effect */
   .hover-lift {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .hover-lift:hover {
     transform: translateY(-8px);
   }
