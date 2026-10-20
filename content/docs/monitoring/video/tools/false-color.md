@@ -51,9 +51,7 @@ You can adjust the center hue (100 to 140 degrees) and a smoothing value (0 to 1
 
 Use Skin Tone mode to compare skin-tone hue and spot shifts caused by mixed lighting.
 
-{{< screenshot name="false-color-skin-tone-options" alt="False Color Skin mode controls for hue, smoothing, and Gray Mask" max-width="555px" >}}
-
-<!-- TODO screenshot: false-color-skin-tone, Skin Tone mode with Gray Mask off, showing highlighted skin regions -->
+{{< screenshot name="false-color-skin-tone" alt="False Color Skin mode highlighting skin tones on two runners, with controls and color key visible" caption="Skin Tone mode highlights the selected hue range while leaving the rest of the image visible with Gray Mask off." >}}
 
 ### White Balance
 
