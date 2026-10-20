@@ -12,7 +12,7 @@
  const status = document.querySelector('.cm-search-status');
  const kbd = document.querySelector('.cm-search kbd');
  kbd.textContent = /Mac|iPad|iPhone/.test(navigator.platform) ? '⌘ K' : 'Ctrl K';
- let pendingIndex, generation = 0;
+ let pendingIndex, generation = 0, searchTimer, lastTrackedSearch;
  function close() { generation++; panel.hidden = true; input.setAttribute('aria-expanded','false'); }
  function open() { panel.hidden = false; input.setAttribute('aria-expanded','true'); }
  function loadIndex() {
@@ -38,6 +38,7 @@
  function textElement(tag,cls,text) { const node = document.createElement(tag); node.className=cls; node.textContent=text; return node; }
  async function search() {
   const current = ++generation, query = input.value.trim();
+  clearTimeout(searchTimer);
   list.replaceChildren();
   if (!query) { close(); return; }
   open(); status.textContent = 'Searching…';
@@ -50,6 +51,12 @@
     if (!found.has(result.doc.url)) found.set(result.doc.url,result.doc);
    }
    const results = [...found.values()].slice(0,12);
+   // Count a settled search once, without sending visitors' free-form text.
+   searchTimer = setTimeout(() => {
+    if (current !== generation || query === lastTrackedSearch) return;
+    lastTrackedSearch = query;
+    window.cmAnalytics?.track('site_search', { result_count: results.length, search_has_results: results.length > 0 });
+   }, 700);
    status.textContent = results.length ? `${results.length} results across the site` : 'No results found. Try another search.';
    for (const doc of results) {
     const li=document.createElement('li'), a=document.createElement('a'); a.href=doc.url;

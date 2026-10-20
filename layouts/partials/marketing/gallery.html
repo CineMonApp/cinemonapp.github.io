@@ -5,10 +5,10 @@
 {{ $count := len .slides }}
 {{ $sizes := .sizes | default "100vw" }}
 {{ $first := index .slides 0 }}
-<div class="cm-gallery" data-gallery role="region" aria-label="{{ .title }} screenshots">
+<div class="cm-gallery" data-gallery data-gallery-id="{{ $id }}" role="region" aria-label="{{ .title }} screenshots">
   <div class="cm-gallery-slides" id="{{ $id }}-slides">
     {{ range $index, $slide := .slides }}
-    <figure class="cm-gallery-slide" data-slide data-title="{{ .title }}" data-caption="{{ .caption }}" id="{{ $id }}-slide-{{ $index }}">
+    <figure class="cm-gallery-slide" data-slide data-image-id="{{ .image }}" data-title="{{ .title }}" data-caption="{{ .caption }}" id="{{ $id }}-slide-{{ $index }}">
       {{ if .image }}
       {{ $image := partial "marketing/home-image.html" .image }}
       <a class="cm-gallery-media" href="{{ $image.full }}" data-zoom draggable="false" aria-label="Enlarge: {{ .title }}">

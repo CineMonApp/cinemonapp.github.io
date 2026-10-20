@@ -29,7 +29,7 @@
     <link href="{{ $customCss.RelPermalink }}" rel="stylesheet" />
   {{- end }}
 
-  {{ partial "components/analytics/analytics.html" . }}
+  {{ partial "analytics.html" . }}
 
   {{- $scriptsHead := slice -}}
   {{- range resources.Match "js/head/*.js" -}}

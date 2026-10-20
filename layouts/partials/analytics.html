@@ -1,0 +1,6 @@
+{{- with site.Params.analytics -}}
+  {{- $area := $.Section | default "home" -}}
+  {{- with resources.Get "js/analytics.js" | minify | fingerprint -}}
+<script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" data-cm-analytics data-enabled="{{ hugo.IsProduction }}" data-gtm-id="{{ site.Params.analytics.gtmID }}" data-measurement-id="{{ site.Params.analytics.measurementID }}" data-page-area="{{ $area }}"></script>
+  {{- end -}}
+{{- end -}}

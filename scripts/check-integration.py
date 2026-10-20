@@ -35,6 +35,9 @@ def main():
             errors.append(f'Missing page: {route}')
             continue
         page = Page(path)
+        analytics = [u for u in page.scripts if '/js/analytics.' in u]
+        if len(analytics) != 1:
+            errors.append(f'Expected one shared analytics script: {route}')
         if any('/css/compiled/' in u for u in page.styles) != docs:
             errors.append(f'Wrong stylesheet family: {route}')
         if not any('flexsearch' in u for u in page.scripts):

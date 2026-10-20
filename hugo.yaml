@@ -30,6 +30,9 @@ caches:
 uglyURLs:
   app: true
 params:
+  analytics:
+    gtmID: GTM-W5RFBKS9
+    measurementID: G-RGTY2K7NEZ
   seo:
     canonicalBaseURL: https://www.cinemon.app
     description: "Monitor two live video sources, mix audio, and record with slates and timecode. Professional production tools for iPad and Mac."

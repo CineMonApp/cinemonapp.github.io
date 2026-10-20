@@ -88,6 +88,9 @@ jobs:
           python3 scripts/check-integration.py public
           python3 scripts/check-seo.py public
 
+      - name: Validate analytics behavior
+        run: node --test scripts/check-analytics.mjs
+
       - name: Cache Save (Hugo cache)
         id: cache-save
         uses: actions/cache/save@v6.1.0
