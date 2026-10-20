@@ -1,0 +1,30 @@
+{{- $docs := eq .Type "docs" -}}
+<div class="cm-header-space{{ if $docs }} cm-header-docs{{ end }}">
+  <header class="cm-header" id="mainNav">
+    <div class="cm-header-row">
+      <a class="cm-brand cm-browser-brand" href="/" aria-label="CineMon home"><img src="/images/CineMon-Logo-Horz-Dark-Bg-Small.png" width="112" height="28" alt="CineMon"></a>
+      {{ if $docs }}<a class="cm-brand cm-help-brand" href="/docs/" aria-label="CineMon Help"><img src="/images/CineMon-Logo-Horz-Dark-Bg-Small.png" width="112" height="28" alt="CineMon"><span>Help</span></a>{{ end }}
+      <nav class="cm-site-links" id="cm-site-links" aria-label="Main navigation">
+        {{ range hugo.Data.navigation }}
+          {{ if .children }}
+          <div class="cm-product-menu{{ if $.IsHome }} cm-product-current{{ end }}">
+            <a class="cm-product-overview" href="/#header">{{ .name }}</a>
+            <details class="cm-product-disclosure">
+              <summary aria-label="Product menu" aria-controls="cm-product-links"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></summary>
+              <div class="cm-product-links" id="cm-product-links">
+                {{ range .children }}<a href="{{ .url | safeURL }}">{{ .name }}</a>{{ end }}
+              </div>
+            </details>
+          </div>
+          {{ else }}
+          {{ $active := or (and $docs (eq .url "/docs/")) (eq $.RelPermalink .url) }}
+          <a href="{{ .url | safeURL }}"{{ if $active }} aria-current="page"{{ end }}{{ if .primary }} class="cm-download"{{ end }}>{{ .name }}</a>
+          {{ end }}
+        {{ end }}
+      </nav>
+      {{ partial "search.html" . }}
+      <button class="cm-site-toggle" type="button" aria-label="Toggle navigation" aria-controls="cm-site-links" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+    {{ if $docs }}<button class="cm-contents-toggle hextra-hamburger-menu" type="button" aria-label="Documentation contents" aria-expanded="false"><span>Contents</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>{{ end }}
+  </header>
+</div>

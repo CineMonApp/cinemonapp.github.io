@@ -1,0 +1,7 @@
+{{- $src := printf "/images/docs/screens/cm-d-%s.jpg" (.Get "name") -}}
+{{- $path := printf "static%s" $src -}}
+<figure class="cm-screenshot"{{ with .Get "max-width" }} style="max-width: {{ . }}"{{ end }}>
+  <img src="{{ $src | relURL }}" alt="{{ .Get "alt" }}" class="screenshot" loading="lazy" decoding="async"
+    {{- if fileExists $path }}{{ with imageConfig $path }} width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}>
+  {{- with .Get "caption" }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>

@@ -1,0 +1,26 @@
+/* =========================================================================
+   Text-only override for the documentation PDF.
+
+   Applied by scripts/build-docs-pdf.sh --no-images, passed to WeasyPrint with
+   -s, which loads it as a USER stylesheet. User stylesheets sit *below* author
+   rules in the cascade, so every declaration here needs !important to beat
+   both assets/css/print.css and the inline `style="width:100%;max-width:..."`
+   that Hugo's image render hook emits.
+
+   The cover logo is deliberately left alone: it is the document's identity,
+   not documentation content. Drop `#cover .cover-logo` in here if you want a
+   completely image-free file.
+   ========================================================================= */
+
+/* Every content image: screenshots, diagrams, badges. */
+.doc-body img,
+.doc-body .screenshot,
+.doc-body svg,
+.doc-body picture,
+.doc-body figure { display: none !important; }
+
+/* A paragraph whose only content was an image (the App Store badge, the
+   connection diagram) would otherwise leave its margin behind as a stray gap.
+   Collapse the box; the margins go with it. */
+.doc-body p:empty,
+.doc-body a:empty { display: none !important; margin: 0 !important; }

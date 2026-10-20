@@ -1,0 +1,47 @@
+{{ $leadSizes := "(min-width: 1280px) 46rem, (min-width: 900px) 58vw, 100vw" }}
+{{ $cardSizes := "(min-width: 1280px) 36rem, (min-width: 600px) 48vw, 100vw" }}
+{{ range hugo.Data.homepage }}
+<section id="{{ .id }}" class="section-shell cm-showcase" aria-labelledby="{{ .id }}-heading">
+  <div class="container-custom">
+    <div class="cm-section-heading" data-reveal>
+      <p class="kicker">{{ .number }} / {{ .label }}</p>
+      <h2 id="{{ .id }}-heading" class="headline">{{ .title | safeHTML }}</h2>
+      <p class="lede">{{ .intro }}</p>
+    </div>
+    {{ with .lead }}
+    <div class="cm-showcase-lead">
+      <div class="cm-showcase-copy" data-reveal>
+        <h3>{{ .title }}</h3><p>{{ .copy }}</p>
+        <a class="cm-feature-link" href="{{ .link }}">{{ .label }} <span aria-hidden="true">↗</span></a>
+      </div>
+      {{ partial "marketing/gallery.html" (merge . (dict "sizes" $leadSizes)) }}
+    </div>
+    {{ end }}
+    <div class="cm-showcase-cards">
+      {{ range .cards }}
+      <article class="cm-feature-card">
+        {{ partial "marketing/gallery.html" (merge . (dict "sizes" $cardSizes)) }}
+        <div class="cm-showcase-copy">
+          <h3>{{ .title }}</h3><p>{{ .copy }}</p>
+          <a class="cm-feature-link" href="{{ .link }}">{{ .label }} <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+{{- /* One shared lightbox; galleries.js fills it from the selected slide. */ -}}
+<dialog class="cm-lightbox" id="cm-lightbox" aria-labelledby="cm-lightbox-title">
+  <div class="cm-lightbox-frame">
+    <img data-lightbox-image alt="" width="1600" height="1000">
+    <div class="cm-lightbox-bar">
+      <p class="cm-lightbox-text"><strong id="cm-lightbox-title" data-lightbox-title></strong><span data-lightbox-caption></span></p>
+      <div class="cm-lightbox-nav" data-lightbox-nav hidden>
+        <button class="cm-gallery-button" type="button" data-lightbox-prev aria-label="Previous screenshot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+        <button class="cm-gallery-button" type="button" data-lightbox-next aria-label="Next screenshot"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+      </div>
+      <button class="cm-gallery-button" type="button" data-dialog-close aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="m3.5 3.5 9 9M12.5 3.5l-9 9"/></svg></button>
+    </div>
+  </div>
+</dialog>

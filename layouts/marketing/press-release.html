@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{ with resources.Get "css/press.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">{{ end }}
+<main id="content" class="cm-press press-release-page">
+  <nav class="press-release-toolbar" aria-label="Release downloads"><a href="/press/">← Press kit</a><div><a href="/press/downloads/cinemon-2.0-press-release.pdf" download>Download PDF ↓</a><a href="/press/downloads/cinemon-2.0-press-release.txt" download>Plain text ↓</a></div></nav>
+  <article class="press-article">{{ .Content }}</article>
+</main>
+{{ end }}

@@ -1,0 +1,26 @@
+# PDF-only Hugo config overlay.
+#
+# Merged on top of hugo.yaml ONLY by scripts/build-docs-pdf.sh, so the live
+# site build is untouched and /print.html is never published.
+#
+#   hugo --config hugo.yaml,scripts/pdf/config-pdf.yaml
+#
+# relativeURLs makes every asset reference relative to the generated file, so
+# WeasyPrint resolves images and CSS straight off disk with no web server.
+relativeURLs: true
+disableKinds:
+  - RSS
+  - sitemap
+  - taxonomy
+  - term
+outputFormats:
+  print:
+    mediaType: text/html
+    baseName: print
+    isHTML: true
+    permalinkable: false
+    noUgly: true
+outputs:
+  home:
+    - html
+    - print

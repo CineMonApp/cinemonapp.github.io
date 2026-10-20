@@ -1,22 +1,16 @@
-# Generated files by hugo
+# Hugo output and caches.
 /public/
 /resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
-.DS_Store
-node_modules
-dist
-tmp
-
-# Executable may be added to repository
-hugo.exe
-hugo.darwin
-hugo.linux
-
-# Temporary lock file while building
+/hugo_stats.json
 /.hugo_build.lock
+/assets/jsconfig.json
 
-# Local files
-MIGRATION_SUMMARY.md
-QUICK_START.md
-README.md
+# Dependencies and local build/export output.
+/node_modules/
+/dist/
+/tmp/
+
+# Machine-generated files.
+.DS_Store
+__pycache__/
+*.py[cod]

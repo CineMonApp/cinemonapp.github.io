@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ with resources.Get "css/press.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">{{ end }}
+{{ $kit := hugo.Data.press }}
+<main id="content" class="cm-press">
+  <header class="press-intro">
+    <p class="press-kicker">CineMon / Press &amp; media</p>
+    <h1>Press kit</h1>
+    <p class="press-lead">Product information, screenshots, and artwork for coverage of CineMon 2.0.</p>
+    <div class="press-actions"><a class="press-button" href="{{ $kit.bundle.url }}" download>Download press kit <span>ZIP · {{ $kit.bundle.size }}</span></a><a class="press-text-link" href="mailto:press@cinemon.app">Contact press@cinemon.app ↗</a></div>
+    <p class="press-note">October 20, 2026 release · Includes the release, fact sheet, {{ len $kit.screenshots }} screenshots, and brand artwork.</p>
+  </header>
+  <nav class="press-nav" aria-label="Press kit sections"><a href="#release">Launch release</a><a href="#facts">Product facts</a><a href="#screenshots">Screenshots</a><a href="#artwork">Brand artwork</a><a href="#contact">Media inquiries</a></nav>
+  <section id="release" class="press-section press-release-summary">
+    <div><p class="press-kicker">October 20, 2026 / New York</p><h2>CineMon 2.0</h2><p>Multi-source monitoring, audio mixing, and recording for iPad and Mac. The release covers the new video tools, audio scopes, slates, timecode, and introductory pricing.</p></div>
+    <div class="press-release-links"><a href="/press/cinemon-2-0/">Read the release <span>Web ↗</span></a><a href="/press/downloads/cinemon-2.0-press-release.pdf" download>Download release <span>PDF · {{ $kit.release.pdfSize }}</span></a><a href="/press/downloads/cinemon-2.0-press-release.txt" download>Download release <span>Plain text</span></a></div>
+  </section>
+  <section id="facts" class="press-section">
+    <div class="press-section-heading"><div><p class="press-kicker">At a glance</p><h2>Product facts</h2></div><a href="/press/downloads/cinemon-2.0-fact-sheet.txt" download>Download fact sheet ↓</a></div>
+    <p class="press-description">CineMon is a professional video and audio monitoring app for iPad and Mac. It combines scopes and video assist tools, multi-source audio mixing, and recording with slate metadata and timecode.</p>
+    <dl class="press-facts">{{ range $kit.facts }}<div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>{{ end }}</dl>
+    <h3 class="press-pricing-title">Introductory pricing <span>U.S. dollars</span></h3>
+    <div class="press-table-wrap"><table><caption class="press-sr-only">CineMon 2.0 introductory prices in U.S. dollars</caption><thead><tr><th scope="col">Purchase</th><th scope="col">Price</th></tr></thead><tbody>{{ range $kit.prices }}<tr><th scope="row">{{ .name }}</th><td>{{ .price }}</td></tr>{{ end }}</tbody></table></div>
+    <p class="press-note">Free to download with included monitoring tools. Eligible subscribers receive a three-day trial on the monthly PRO Pass or one week on the yearly plan. Regional prices appear in the App Store.</p>
+    <p class="press-note">The Audio + Recording Upgrade adds both Packs for existing Video Pack owners. One-time Packs retain their purchased features; PRO Pass includes all PRO features while subscribed.</p>
+  </section>
+  <section id="screenshots" class="press-section">
+    <div class="press-section-heading"><div><p class="press-kicker">CineMon 2.0 / iPad &amp; Mac</p><h2>Product screenshots</h2></div></div>
+    <p class="press-description">Download full-resolution JPEGs individually, or get every image in the complete kit. Previews are smaller for browsing.</p>
+    <div class="press-gallery">{{ range $kit.screenshots }}<figure><a class="press-image-link" href="{{ .url }}" aria-label="View full-resolution {{ .title }}"><img src="{{ .preview }}" alt="{{ .alt }}" width="{{ .previewWidth }}" height="{{ .previewHeight }}" loading="lazy" decoding="async"></a><figcaption><h3>{{ .title }}</h3><p>{{ .caption }}</p><a href="{{ .url }}" download>Download JPEG ↓ <span>{{ .width }} × {{ .height }} · {{ .size }}</span></a></figcaption></figure>{{ end }}</div>
+  </section>
+  <section id="artwork" class="press-section">
+    <div class="press-section-heading"><div><p class="press-kicker">Official assets</p><h2>Brand artwork</h2></div></div>
+    <div class="press-artwork">{{ range $kit.artwork }}<figure><div class="press-artwork-preview{{ if eq .background "light" }} press-artwork-preview--light{{ end }}"><img src="{{ .url }}" alt="{{ .alt }}" width="{{ .width }}" height="{{ .height }}" loading="lazy"></div><figcaption><h3>{{ .title }}</h3>{{ range .downloads }}<a href="{{ .url }}" download>Download {{ .format }} ↓ <span>{{ .detail }}</span></a>{{ end }}</figcaption></figure>{{ end }}</div>
+    <p class="press-note">Use the supplied artwork without recoloring or stretching it. Leave clear space around the logo. Image credit: CineMon / CineSpices, LLC.</p>
+  </section>
+  <section id="contact" class="press-section press-contact"><div><p class="press-kicker">Press &amp; media</p><h2>Media inquiries</h2><p>Contact us for interviews, review requests, additional images, or product questions.</p><a class="press-contact-email" href="mailto:press@cinemon.app">press@cinemon.app ↗</a></div><div class="press-contact-links"><a href="https://apps.apple.com/us/app/cinemon/id6504142777">CineMon on the App Store ↗</a><a href="/docs/">Product documentation ↗</a><a href="/docs/help/release-notes/">Release notes ↗</a></div></section>
+</main>
+{{ end }}

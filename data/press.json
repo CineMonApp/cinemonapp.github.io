@@ -1,0 +1,275 @@
+{
+  "bundle": {
+    "url": "/press/downloads/cinemon-2.0-press-kit.zip",
+    "size": "10.5 MB"
+  },
+  "release": {
+    "pdfSize": "70 KB"
+  },
+  "facts": [
+    {
+      "label": "Product",
+      "value": "CineMon 2.0"
+    },
+    {
+      "label": "Launch",
+      "value": "October 20, 2026"
+    },
+    {
+      "label": "Platforms",
+      "value": "USB-C iPad with iPadOS 26 or later; Mac with macOS Tahoe 26 or later."
+    },
+    {
+      "label": "Developer",
+      "value": "CineSpices, LLC. Created by Ike Arias."
+    },
+    {
+      "label": "Video",
+      "value": "Two simultaneous live video sources, Reference Mode, video scopes, composition and focus tools, LUTs, and input color management."
+    },
+    {
+      "label": "Audio",
+      "value": "Multi-source mixing, six audio scopes, and ITU-R BS.1770 loudness metering."
+    },
+    {
+      "label": "Recording",
+      "value": "ProRes, H.264, and 10-bit HEVC on supported encoders, with digital slates, metadata, timecode, and a Media Library."
+    },
+    {
+      "label": "Video input hardware",
+      "value": "USB capture devices on iPad and Mac; Accsoon SeeMo on iPad; Blackmagic Design DeckLink and UltraStudio on Mac."
+    },
+    {
+      "label": "Availability",
+      "value": "Free download on the App Store, with one-time PRO Packs and a PRO Pass subscription."
+    },
+    {
+      "label": "Media inquiries",
+      "value": "press@cinemon.app"
+    }
+  ],
+  "prices": [
+    {
+      "name": "PRO Video Monitoring Pack",
+      "price": "$149.99"
+    },
+    {
+      "name": "PRO Audio Monitoring Pack",
+      "price": "$49.99"
+    },
+    {
+      "name": "PRO Recording Pack",
+      "price": "$99.99"
+    },
+    {
+      "name": "PRO Video + Audio + Recording Bundle",
+      "price": "$279.99"
+    },
+    {
+      "name": "Audio + Recording Upgrade",
+      "price": "$129.99"
+    },
+    {
+      "name": "CineMon PRO Pass",
+      "price": "$15.99/month \u00b7 $149.99/year"
+    }
+  ],
+  "screenshots": [
+    {
+      "title": "Monitoring workspace on Mac",
+      "alt": "Video assist overlays and floating video and audio scopes in the Mac workspace.",
+      "caption": "Video assist overlays and floating video and audio scopes in the Mac workspace.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-monitoring-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-monitoring-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "1.1 MB"
+    },
+    {
+      "title": "Reference Mode on iPad",
+      "alt": "Two video sources displayed side by side, with a waveform monitor and vectorscope.",
+      "caption": "Two video sources displayed side by side, with a waveform monitor and vectorscope.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-reference-mode-ipad.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-reference-mode-ipad.jpg",
+      "width": 2752,
+      "height": 2064,
+      "previewWidth": 960,
+      "previewHeight": 720,
+      "size": "998 KB"
+    },
+    {
+      "title": "Video analysis on Mac",
+      "alt": "RGB parade and waveform monitors, a vectorscope, and an RGB histogram in a four-panel layout.",
+      "caption": "RGB parade and waveform monitors, a vectorscope, and an RGB histogram in a four-panel layout.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-video-scopes-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-video-scopes-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "1.7 MB"
+    },
+    {
+      "title": "False color on Mac",
+      "alt": "A custom IRE gradient maps image brightness to colors, with controls for editing individual gradient stops.",
+      "caption": "A custom IRE gradient maps image brightness to colors, with controls for editing individual gradient stops.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-false-color-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-false-color-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "921 KB"
+    },
+    {
+      "title": "Framing crops on Mac",
+      "alt": "Widescreen Frame A and vertical Frame B crop monitors show two delivery compositions from the same image.",
+      "caption": "Widescreen Frame A and vertical Frame B crop monitors show two delivery compositions from the same image.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-framing-crops-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-framing-crops-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "474 KB"
+    },
+    {
+      "title": "Green-screen preview on Mac",
+      "alt": "The Color Keyer removes a green backdrop; Reference Mode compares the keyed subject against transparency and a reference background.",
+      "caption": "The Color Keyer removes a green backdrop; Reference Mode compares the keyed subject against transparency and a reference background.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-green-screen-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-green-screen-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "1.0 MB"
+    },
+    {
+      "title": "Stereoscopic 3D preview on Mac",
+      "alt": "3D Preview displays stereo footage as a red/cyan anaglyph, with controls for convergence and alignment guides.",
+      "caption": "3D Preview displays stereo footage as a red/cyan anaglyph, with controls for convergence and alignment guides.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-anaglyph-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-anaglyph-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "992 KB"
+    },
+    {
+      "title": "Color palette on Mac",
+      "alt": "Color Palette identifies dominant image colors and displays their relative coverage.",
+      "caption": "Color Palette identifies dominant image colors and displays their relative coverage.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-color-palette-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-color-palette-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "994 KB"
+    },
+    {
+      "title": "Audio mixing on Mac",
+      "alt": "Camera audio, microphone inputs, and media files in a multi-source mixer, alongside a goniometer and spectrum analyzer.",
+      "caption": "Camera audio, microphone inputs, and media files in a multi-source mixer, alongside a goniometer and spectrum analyzer.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-audio-mixer-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-audio-mixer-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "1017 KB"
+    },
+    {
+      "title": "Audio analysis on Mac",
+      "alt": "Six floating audio scopes show levels, loudness, stereo balance, waveforms, and frequency content.",
+      "caption": "Six floating audio scopes show levels, loudness, stereo balance, waveforms, and frequency content.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-audio-scopes-mac.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-audio-scopes-mac.jpg",
+      "width": 2880,
+      "height": 1800,
+      "previewWidth": 960,
+      "previewHeight": 600,
+      "size": "982 KB"
+    },
+    {
+      "title": "Digital slate on iPad",
+      "alt": "A digital slate groups production, camera, scene, and take information before capture.",
+      "caption": "A digital slate groups production, camera, scene, and take information before capture.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-digital-slate-ipad.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-digital-slate-ipad.jpg",
+      "width": 1376,
+      "height": 1032,
+      "previewWidth": 960,
+      "previewHeight": 720,
+      "size": "196 KB"
+    },
+    {
+      "title": "Media review on iPad",
+      "alt": "A populated Media Library with a selected preview, Good Take flags, ratings, notes, and keywords.",
+      "caption": "A populated Media Library with a selected preview, Good Take flags, ratings, notes, and keywords.",
+      "url": "/press/downloads/screenshots/cinemon-2.0-media-library-ipad.jpg",
+      "preview": "/press/downloads/previews/cinemon-2.0-media-library-ipad.jpg",
+      "width": 2752,
+      "height": 1550,
+      "previewWidth": 960,
+      "previewHeight": 541,
+      "size": "742 KB"
+    }
+  ],
+  "artwork": [
+    {
+      "title": "App icon",
+      "alt": "CineMon app icon",
+      "url": "/press/downloads/artwork/cinemon-app-icon-1024.png",
+      "width": 1024,
+      "height": 1024,
+      "size": "108 KB",
+      "downloads": [
+        {
+          "url": "/press/downloads/artwork/cinemon-app-icon-1024.png",
+          "format": "PNG",
+          "detail": "1024 \u00d7 1024 \u00b7 108 KB"
+        }
+      ]
+    },
+    {
+      "title": "Logo for dark backgrounds",
+      "alt": "CineMon horizontal logo for dark backgrounds",
+      "url": "/press/downloads/artwork/cinemon-logo-horizontal-dark-bg.png",
+      "width": 2040,
+      "height": 512,
+      "background": "dark",
+      "downloads": [
+        {
+          "url": "/press/downloads/artwork/cinemon-logo-horizontal-dark-bg.png",
+          "format": "PNG",
+          "detail": "2040 \u00d7 512 \u00b7 82 KB"
+        },
+        {
+          "url": "/press/downloads/artwork/cinemon-logo-horizontal-dark-bg.svg",
+          "format": "SVG",
+          "detail": "139 KB"
+        }
+      ]
+    },
+    {
+      "title": "Logo for light backgrounds",
+      "alt": "CineMon horizontal logo for light backgrounds",
+      "url": "/press/downloads/artwork/cinemon-logo-horizontal-light-bg.png",
+      "width": 2040,
+      "height": 512,
+      "background": "light",
+      "downloads": [
+        {
+          "url": "/press/downloads/artwork/cinemon-logo-horizontal-light-bg.png",
+          "format": "PNG",
+          "detail": "2040 \u00d7 512 \u00b7 82 KB"
+        }
+      ]
+    }
+  ]
+}

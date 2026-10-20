@@ -1,16 +1,35 @@
 {
   "name": "cinemon-website",
-  "version": "1.0.0",
-  "description": "CineMon - Professional video monitor for iOS and Mac",
+  "version": "2.0.0",
+  "description": "CineMon - Professional video and audio monitoring for iPad and Mac",
   "keywords": [],
   "author": "Ike Arias",
   "license": "UNLICENSED",
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "three": "^0.186.1"
+  },
   "devDependencies": {
-    "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/typography": "^0.5.10",
-    "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.32",
-    "postcss-cli": "^11.0.0",
-    "tailwindcss": "^3.4.0"
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/typography": "^0.5.20",
+    "tailwindcss": "^4.3.3"
+  },
+  "scripts": {
+    "dev": "bash scripts/serve.sh",
+    "build": "hugo --gc --minify",
+    "check": "python3 scripts/check-docs.py public && python3 scripts/check-integration.py public && python3 scripts/check-seo.py public"
+  },
+  "packageManager": "npm@12.2.0",
+  "engines": {
+    "node": "^24.15.0 || >=26.0.0",
+    "npm": ">=12.2.0"
+  },
+  "overrides": {
+    "@tailwindcss/cli": {
+      "@parcel/watcher": "^2.6.0"
+    },
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "^7.1.6"
+    }
   }
 }

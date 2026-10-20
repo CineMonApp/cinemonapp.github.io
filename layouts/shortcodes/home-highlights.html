@@ -1,0 +1,19 @@
+<section id="whats-new" class="section-shell cm-highlights" aria-labelledby="whats-new-heading">
+  <div class="container-custom">
+    <div class="cm-section-heading" data-reveal>
+      <p class="kicker">01 / What's new in 2.0</p>
+      <h2 id="whats-new-heading" class="headline">Video, audio,<br>and recording in one app.</h2>
+      <p class="lede">Two live video sources, multi-source audio mixing, and recording with slates and timecode.</p>
+    </div>
+    <div class="cm-highlight-grid">
+    {{ range hugo.Data.homepage }}
+      <a class="cm-highlight" href="#{{ .id }}">
+        <span class="cm-highlight-number" aria-hidden="true">{{ .number }}</span>
+        <h3>{{ .label }}</h3><p>{{ .summary }}</p>
+        <span class="cm-feature-link">Take a closer look <span aria-hidden="true">↓</span></span>
+      </a>
+    {{ end }}
+    </div>
+    <p class="cm-release-note">A rebuilt 16-bit Metal video engine for lower latency and reduced banding. Reusable Input Profiles and iCloud configuration sync. <a href="/docs/start-here/whats-new/">See what’s new in CineMon 2.0 ↗</a></p>
+  </div>
+</section>

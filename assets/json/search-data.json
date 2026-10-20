@@ -1,0 +1,13 @@
+{{- $pages := where site.Pages "Kind" "in" (slice "home" "page" "section") -}}
+{{- $pages = where $pages "Params.excludeSearch" "!=" true -}}
+{{- $output := dict -}}
+{{- range $pages -}}
+  {{- if .Content -}}
+    {{- $data := dict "" (.Plain | htmlUnescape | strings.TrimSpace) -}}
+    {{- if eq .Type "docs" -}}
+      {{- $data = partial "utils/fragments" (dict "context" . "type" "content") -}}
+    {{- end -}}
+    {{- $output = merge $output (dict .RelPermalink (dict "title" .LinkTitle "area" (cond (eq .Type "docs") "Documentation" "Website") "data" $data)) -}}
+  {{- end -}}
+{{- end -}}
+{{- $output | jsonify -}}

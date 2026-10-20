@@ -1,0 +1,21 @@
+- name: Product
+  children:
+    - name: Overview
+      url: /#header
+    - name: What's New in 2.0
+      url: /#whats-new
+    - name: Video Monitoring
+      url: /#video
+    - name: Audio Monitoring
+      url: /#audio
+    - name: Recording & Media
+      url: /#recording
+    - name: Hardware Support
+      url: /#hardware
+- name: Partners
+  url: /partners/
+- name: Docs
+  url: /docs/
+- name: Download
+  url: https://apps.apple.com/us/app/cinemon/id6504142777?itscg=30200&itsct=apps_box_link&mttnsubad=6504142777
+  primary: true

@@ -1,0 +1,14 @@
+/* Shared CineMon brand tokens for marketing pages and Hextra documentation.
+   Surfaces are neutral so the picture is the only saturated thing on screen;
+   violet is reserved for links, focus, and the primary action. */
+:root {
+    --cm-ink: #070708;
+    --cm-ink-2: #0c0c0d;
+    --cm-surface: #121213;
+    --cm-surface-2: #1a1a1c;
+    --cm-violet: #665def;
+    --cm-violet-bright: #8b83ff;
+    --cm-lavender: #a299ff;
+    --cm-cyan: #55e6ff;
+    --cm-display-font: 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
+}

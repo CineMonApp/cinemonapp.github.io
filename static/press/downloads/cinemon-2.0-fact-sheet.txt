@@ -1,0 +1,49 @@
+CINEMON 2.0 | PRODUCT FACT SHEET
+October 20, 2026
+
+CineMon is a professional video and audio monitoring app for iPad and Mac. It combines scopes and video assist tools, multi-source audio mixing, and recording with slate metadata and timecode.
+
+Product
+CineMon 2.0
+
+Launch
+October 20, 2026
+
+Platforms
+USB-C iPad with iPadOS 26 or later; Mac with macOS Tahoe 26 or later.
+
+Developer
+CineSpices, LLC. Created by Ike Arias.
+
+Video
+Two simultaneous live video sources, Reference Mode, video scopes, composition and focus tools, LUTs, and input color management.
+
+Audio
+Multi-source mixing, six audio scopes, and ITU-R BS.1770 loudness metering.
+
+Recording
+ProRes, H.264, and 10-bit HEVC on supported encoders, with digital slates, metadata, timecode, and a Media Library.
+
+Video input hardware
+USB capture devices on iPad and Mac; Accsoon SeeMo on iPad; Blackmagic Design DeckLink and UltraStudio on Mac.
+
+Availability
+Free download on the App Store, with one-time PRO Packs and a PRO Pass subscription.
+
+Media inquiries
+press@cinemon.app
+
+INTRODUCTORY PRICING (USD)
+PRO Video Monitoring Pack: $149.99
+PRO Audio Monitoring Pack: $49.99
+PRO Recording Pack: $99.99
+PRO Video + Audio + Recording Bundle: $279.99
+Audio + Recording Upgrade: $129.99
+CineMon PRO Pass: $15.99/month · $149.99/year
+
+Eligible subscribers: three-day monthly PRO Pass trial or one-week yearly trial. Regional pricing appears in the App Store. Audio + Recording Upgrade is for existing Video Pack owners.
+
+Website: https://www.cinemon.app/
+Press kit: https://www.cinemon.app/press/
+Documentation: https://www.cinemon.app/docs/
+App Store: https://apps.apple.com/us/app/cinemon/id6504142777

@@ -1,0 +1,99 @@
+{{- /*
+  Single-page print rendering of the whole docs tree, for PDF generation.
+
+  Only ever rendered when the `print` output format is enabled, which happens
+  exclusively via scripts/pdf/config-pdf.yaml. The live site never builds this.
+
+  Page order is the sidebar order: each section's .Pages sorted ByWeight,
+  walked depth-first, so the PDF tracks the docs navigation exactly.
+
+  Cross-page links (/docs/foo/bar) are rewritten to in-document fragments so
+  they stay live inside the PDF instead of pointing at the website.
+*/ -}}
+{{- $docs := site.GetPage "/docs" -}}
+
+{{- /* (permalink -> in-document anchor) pairs, built once, used by doc-branch */ -}}
+{{- $links := slice -}}
+{{- range site.Pages -}}
+  {{- if or (eq . $docs) ($docs.IsAncestor .) -}}
+    {{- $links = $links | append (dict "path" (strings.TrimSuffix "/" .RelPermalink) "id" (anchorize .RelPermalink)) -}}
+  {{- end -}}
+{{- end -}}
+
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+<meta charset="utf-8">
+<title>CineMon Documentation</title>
+<link rel="stylesheet" href="{{ (resources.Get "css/print.css").RelPermalink }}">
+</head>
+<body>
+
+{{- /* ---------------------------------------------------------------- cover */}}
+<section id="cover">
+  <img class="cover-logo" src="/images/CineMon-Logo-Horz-Dark-Bg-Small.png" alt="CineMon">
+  <h1 class="cover-title">Documentation</h1>
+  <p class="cover-sub">Professional on-set monitoring and recording<br>for iPad and Mac</p>
+  <p class="cover-meta">
+    Version {{ site.Params.docsVersion | default "2.0" }}<br>
+    Generated {{ now.Format "2 January 2006" }}
+  </p>
+  <p class="cover-foot">www.cinemon.app</p>
+</section>
+
+{{- /* ------------------------------------------------------------------ toc */}}
+<section id="toc">
+  <h1 class="toc-title">Contents</h1>
+  <ul class="toc-list">
+    {{- template "toc-branch" (dict "page" $docs "level" 1) -}}
+  </ul>
+</section>
+
+{{- /* --------------------------------------------------------------- bodies */}}
+<main>
+  {{- template "doc-branch" (dict "page" $docs "level" 1 "links" $links) -}}
+</main>
+
+</body>
+</html>
+
+{{- /* =================================================================
+     toc-branch: one entry per page, recursing into sections.
+     ================================================================= */ -}}
+{{- define "toc-branch" -}}
+  {{- $page := .page -}}
+  {{- $level := .level -}}
+  <li class="toc-l{{ $level }}"><a href="#{{ anchorize $page.RelPermalink }}">{{ $page.Title }}</a></li>
+  {{- range $page.Pages.ByWeight -}}
+    {{- template "toc-branch" (dict "page" . "level" (add $level 1)) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* =================================================================
+     doc-branch: the page body, then its children, depth-first.
+     ================================================================= */ -}}
+{{- define "doc-branch" -}}
+  {{- $page := .page -}}
+  {{- $level := .level -}}
+  {{- $links := .links -}}
+  {{- $prefix := anchorize $page.RelPermalink -}}
+  {{- $content := $page.Content -}}
+  {{- /* Namespace heading IDs and local fragments before rewriting page links. */ -}}
+  {{- $content = replaceRE `id="([^"]+)"` (printf `id="%s-${1}"` $prefix) $content -}}
+  {{- $content = replaceRE `href="#([^"]+)"` (printf `href="#%s-${1}"` $prefix) $content -}}
+  {{- range $links -}}
+    {{- $path := replaceRE `([.])` `\${1}` .path -}}
+    {{- $content = replaceRE (printf `href="%s/?#([^"]+)"` $path) (printf `href="#%s-${1}"` .id) $content -}}
+    {{- $content = replaceRE (printf `href="%s/?"` $path) (printf `href="#%s"` .id) $content -}}
+  {{- end -}}
+  <article class="doc doc-l{{ $level }}" id="{{ anchorize $page.RelPermalink }}">
+    <h1 class="doc-title doc-title-l{{ $level }}">{{ $page.Title }}</h1>
+    {{- with $page.Params.description }}<p class="doc-desc">{{ . }}</p>{{ end -}}
+    <div class="doc-body">
+      {{ $content | safeHTML }}
+    </div>
+  </article>
+  {{- range $page.Pages.ByWeight -}}
+    {{- template "doc-branch" (dict "page" . "level" (add $level 1) "links" $links) -}}
+  {{- end -}}
+{{- end -}}

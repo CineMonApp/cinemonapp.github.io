@@ -1,8 +1,27 @@
 baseURL: https://www.cinemon.app/
-languageCode: en-us
-title: CineMon - Professional video monitor for iOS and Mac
+locale: en-us
+title: CineMon
 theme: cinemon
+module:
+  imports:
+    - path: github.com/imfing/hextra
+  hugoVersion:
+    min: 0.168.0
 disableHugoGeneratorInject: true
+enableRobotsTXT: true
+markup:
+  goldmark:
+    renderer:
+      # Render trusted shortcode HTML before extracting heading text and anchors.
+      unsafe: true
+security:
+  exec:
+    allow: ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$']
+  # This site authors pages as HTML content files (content/*.html). Hugo 0.162+
+  # blocks text/html content by default via security.allowContent, so re-allow it.
+  allowContent:
+    - ^text/html$
+    - ^text/markdown$
 disableKinds:
   - taxonomy
 caches:
@@ -10,3 +29,43 @@ caches:
     dir: :cacheDir/images
 uglyURLs:
   app: true
+params:
+  seo:
+    canonicalBaseURL: https://www.cinemon.app
+    description: "Monitor two live video sources, mix audio, and record with slates and timecode. Professional production tools for iPad and Mac."
+    image: /images/CineMon-iPad-Hero.jpg
+    imageAlt: CineMon video monitoring workspace on iPad
+    imageWidth: 2000
+    imageHeight: 1440
+  # Search
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      version: 0.8.212
+      # index page by: content | summary | heading | title
+      index: content
+  footer:
+    displayCopyright: true
+    displayPoweredBy: false
+  # Embedded mode: when the docs are loaded inside the CineMon app's WKWebView,
+  # the app appends `?<param>=<token>` to the URL to strip the top bar down to
+  # just the logo + search. See head-end.html (detection) and custom.css
+  # (.cm-embedded styling). Not a security boundary — just a mode switch.
+  embed:
+    param: embed
+    token: cinemon-app
+  # Animated hero background. One JS file per variant lives in
+  # themes/cinemon/assets/js/hero-backgrounds/; only the selected one is
+  # built and shipped. Available: silk-cascade, signal-field, kinetic-grid,
+  # bass-ripple, sequin-wave, luminous-silt, liquid-gold, smaller-waterfall.
+  # "none" ships no shader: the hero sits on the plain ink ground.
+  heroBackground: smaller-waterfall
+build:
+  # Emit hugo_stats.json so Tailwind CSS v4 can tree-shake against the
+  # classes Hugo actually renders (see assets/css/main.css `@source`).
+  buildStats:
+    enable: true
+  cachebusters:
+    - source: hugo_stats\.json
+      target: css

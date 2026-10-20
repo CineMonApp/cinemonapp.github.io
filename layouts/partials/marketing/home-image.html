@@ -1,0 +1,24 @@
+{{- /* Resolve a homepage image name to its responsive derivatives.
+       scripts/build-home-images.sh writes static/images/home/<name>-<width>.webp;
+       this returns whichever widths exist as (dict "src" "srcset" "full"). */ -}}
+{{- $name := . -}}
+{{- $dir := "static/images/home" -}}
+{{- $pattern := printf `^%s-(\d+)\.webp$` $name -}}
+{{- $widths := slice -}}
+{{- range os.ReadDir $dir -}}
+  {{- with findRESubmatch $pattern .Name 1 -}}
+    {{- $widths = $widths | append (int (index (index . 0) 1)) -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $widths -}}
+  {{- errorf "Homepage image %q has no derivatives in %s. Add it to scripts/build-home-images.sh and run the script." $name $dir -}}
+{{- end -}}
+{{- $widths = sort $widths -}}
+{{- $srcset := slice -}}
+{{- range $widths -}}
+  {{- $srcset = $srcset | append (printf "/images/home/%s-%d.webp %dw" $name . .) -}}
+{{- end -}}
+{{- return dict
+  "src" (printf "/images/home/%s-%d.webp" $name (index $widths 0))
+  "srcset" (delimit $srcset ", ")
+  "full" (printf "/images/home/%s-%d.webp" $name (index $widths (sub (len $widths) 1))) -}}

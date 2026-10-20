@@ -1,0 +1,62 @@
+{{- $base := strings.TrimSuffix "/" site.Params.seo.canonicalBaseURL -}}
+{{- $url := printf "%s%s" $base .RelPermalink -}}
+{{- $title := printf "%s | CineMon" .Title -}}
+{{- if .IsHome }}{{ $title = "CineMon | Video Monitoring, Audio Mixing & Recording for iPad and Mac" }}{{ end -}}
+{{- $description := .Description | default (.Summary | plainify | htmlUnescape | strings.TrimSpace | truncate 160) | default site.Params.seo.description -}}
+{{- if eq .Kind "404" -}}
+  {{- $title = "Page Not Found | CineMon" -}}
+  {{- $description = "The requested CineMon page could not be found." -}}
+{{- end -}}
+{{- $noindex := or (not hugo.IsProduction) (.Params.noindex | default false) (eq .Kind "404") -}}
+{{- $image := printf "%s%s" $base site.Params.seo.image -}}
+<title>{{ $title }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ $url }}">
+<meta name="robots" content="{{ if $noindex }}noindex, nofollow{{ else }}index, follow, max-image-preview:large{{ end }}">
+<meta property="og:site_name" content="CineMon">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ $url }}">
+<meta property="og:image" content="{{ $image }}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="{{ site.Params.seo.imageWidth }}">
+<meta property="og:image:height" content="{{ site.Params.seo.imageHeight }}">
+<meta property="og:image:alt" content="{{ site.Params.seo.imageAlt }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@CineMonApp">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $image }}">
+<meta name="twitter:image:alt" content="{{ site.Params.seo.imageAlt }}">
+<link rel="icon" type="image/png" href="/favicon-64-64.png" sizes="64x64">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+{{- if ne .Kind "404" -}}
+{{- $orgID := printf "%s/#organization" $base -}}
+{{- $siteID := printf "%s/#website" $base -}}
+{{- $appID := printf "%s/#software" $base -}}
+{{- $pageID := printf "%s#webpage" $url -}}
+{{- $graph := slice
+  (dict "@type" "Organization" "@id" $orgID "name" "CineSpices, LLC")
+  (dict "@type" "WebSite" "@id" $siteID "url" (printf "%s/" $base) "name" "CineMon" "inLanguage" "en-US" "publisher" (dict "@id" $orgID)) -}}
+{{- $page := dict "@type" "WebPage" "@id" $pageID "url" $url "name" $title "description" $description "inLanguage" "en-US" "isPartOf" (dict "@id" $siteID) -}}
+{{- if .IsHome -}}
+  {{- $page = merge $page (dict "mainEntity" (dict "@id" $appID)) -}}
+  {{- $graph = $graph | append (dict "@type" "SoftwareApplication" "@id" $appID "name" "CineMon" "url" (printf "%s/" $base) "description" $description "operatingSystem" (slice "iPadOS" "macOS") "applicationCategory" "MultimediaApplication" "downloadUrl" "https://apps.apple.com/us/app/cinemon/id6504142777" "image" $image "publisher" (dict "@id" $orgID)) -}}
+{{- else -}}
+  {{- $crumbs := slice (dict "@type" "ListItem" "position" 1 "name" "CineMon" "item" (printf "%s/" $base)) -}}
+  {{- range .Ancestors.Reverse -}}
+    {{- if not .IsHome -}}
+      {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" (printf "%s%s" $base .RelPermalink)) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" $url) -}}
+  {{- $breadcrumbID := printf "%s#breadcrumbs" $url -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "@id" $breadcrumbID "itemListElement" $crumbs) -}}
+  {{- $page = merge $page (dict "breadcrumb" (dict "@id" $breadcrumbID)) -}}
+{{- end -}}
+{{- $graph = $graph | append $page -}}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" $graph | jsonify | safeJS }}</script>
+{{- end -}}

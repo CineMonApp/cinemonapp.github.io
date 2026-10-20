@@ -1,0 +1,47 @@
+{{- /* One feature's screenshots. Call with the feature merged with
+       (dict "sizes" "<img sizes>"). A slide's `image` is a derivative name from
+       scripts/build-home-images.sh; null renders the labeled placeholder. */ -}}
+{{ $id := .id }}
+{{ $count := len .slides }}
+{{ $sizes := .sizes | default "100vw" }}
+{{ $first := index .slides 0 }}
+<div class="cm-gallery" data-gallery role="region" aria-label="{{ .title }} screenshots">
+  <div class="cm-gallery-slides" id="{{ $id }}-slides">
+    {{ range $index, $slide := .slides }}
+    <figure class="cm-gallery-slide" data-slide data-title="{{ .title }}" data-caption="{{ .caption }}" id="{{ $id }}-slide-{{ $index }}">
+      {{ if .image }}
+      {{ $image := partial "marketing/home-image.html" .image }}
+      <a class="cm-gallery-media" href="{{ $image.full }}" data-zoom draggable="false" aria-label="Enlarge: {{ .title }}">
+        <img src="{{ $image.src }}" srcset="{{ $image.srcset }}" sizes="{{ $sizes }}" width="1600" height="1000" alt="{{ .title }}: {{ .caption }}" loading="lazy" decoding="async" draggable="false">
+      </a>
+      {{ else }}
+      <div class="cm-gallery-media">
+        <div class="cm-capture-placeholder" data-capture="{{ .asset }}">
+          <span class="cm-placeholder-label">Screenshot planned</span>
+          <span class="cm-placeholder-mark" aria-hidden="true">＋</span>
+          <strong>{{ .title }}</strong>
+          <span class="cm-placeholder-platform">CineMon on {{ .platform }}</span>
+        </div>
+      </div>
+      {{ end }}
+      <figcaption><strong>{{ .title }}</strong><span>{{ .caption }}</span></figcaption>
+    </figure>
+    {{ end }}
+  </div>
+  <div class="cm-gallery-bar" data-gallery-bar hidden>
+    <p class="cm-gallery-label" data-gallery-label aria-hidden="true">{{ $first.title }}</p>
+    {{ if gt $count 1 }}
+    <div class="cm-gallery-pagination" aria-label="Choose a screenshot">
+      {{ range $index, $slide := .slides }}
+      <button type="button" data-go="{{ $index }}" aria-label="Show {{ .title }}" aria-controls="{{ $id }}-slide-{{ $index }}"><span></span></button>
+      {{ end }}
+    </div>
+    <button class="cm-gallery-button" type="button" data-prev aria-label="Previous screenshot" aria-controls="{{ $id }}-slides"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3 5 8l5 5"/></svg></button>
+    <button class="cm-gallery-button" type="button" data-next aria-label="Next screenshot" aria-controls="{{ $id }}-slides"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 3 5 5-5 5"/></svg></button>
+    {{ end }}
+    <button class="cm-gallery-button" type="button" data-enlarge aria-label="Enlarge screenshot" aria-haspopup="dialog"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 2.5h4v4M6.5 13.5h-4v-4M13.5 2.5 9 7M2.5 13.5 7 9"/></svg></button>
+  </div>
+  {{ if gt $count 1 }}
+  <p class="sr-only" data-gallery-status aria-live="polite" aria-atomic="true"></p>
+  {{ end }}
+</div>

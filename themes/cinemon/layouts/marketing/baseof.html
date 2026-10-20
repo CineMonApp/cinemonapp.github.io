@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
+<head>
+{{- partial "marketing/head.html" . -}}
+</head>
+<body{{ if .IsHome }} class="cm-home"{{ end }}>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+        ><iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-W5RFBKS9"
+            height="0"
+            width="0"
+            style="display: none; visibility: hidden"
+        ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <!-- <header> -->
+    {{- partial "marketing/header.html" . -}}
+  <!-- </header> -->
+
+  <!-- <main> -->
+    {{- block "main" . -}}{{- end -}}
+  <!-- </main> -->
+  <!-- <footer> -->
+    {{- partial "marketing/footer.html" . -}}
+  <!-- </footer> -->
+  {{ partial "marketing/head/js.html" . }}
+  {{ partial "scripts/search.html" . }}
+</body>
+</html>

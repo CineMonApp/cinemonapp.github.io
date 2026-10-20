@@ -1,0 +1,246 @@
+[
+  {
+    "id": "video",
+    "number": "02",
+    "label": "Video monitoring",
+    "title": "Video monitoring and analysis.",
+    "intro": "Frame and focus your shot, compare sources in Reference Mode, and analyze exposure and color with professional scopes. Preview the look with LUTs and image adjustments.",
+    "summary": "Compare live sources in Reference Mode. New exposure and color tools, expanded false color, and rebuilt focus peaking.",
+    "lead": {
+      "id": "video-sources",
+      "title": "Two live video sources. One workspace.",
+      "copy": "Two live inputs run simultaneously on iPad or Mac. Reference Mode displays both pictures side by side, with a wipe, or as an overlay for camera matching and continuity checks.",
+      "slides": [
+        {
+          "title": "Two live video sources",
+          "caption": "Monitor both live pictures together for camera matching and shot comparison.",
+          "image": "two-live-sources",
+          "platform": "Mac",
+          "asset": null
+        }
+      ],
+      "link": "/docs/monitoring/video/sources/",
+      "label": "Explore video sources"
+    },
+    "cards": [
+      {
+        "id": "video-exposure",
+        "title": "Framing, focus, and exposure",
+        "copy": "Compare framing crops side by side and check focus with peaking. Measure exposure and contrast with the Spot Meter, or use false color to assess skin tones and highlights.",
+        "slides": [
+          {
+            "title": "Spot Meter",
+            "caption": "Read exposure at two points in the image and see the contrast ratio between them.",
+            "image": "spot-meter",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Custom false-color gradients",
+            "caption": "Set the colors and IRE ranges in your false-color scale.",
+            "image": "false-color-gradient",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Framing crops",
+            "caption": "Compare widescreen and vertical crops of the same source.",
+            "image": "framing-crops",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Focus peaking",
+            "caption": "Colored edges highlight fine detail for checking focus.",
+            "image": "focus-peaking",
+            "platform": "Mac",
+            "asset": null
+          }
+        ],
+        "link": "/docs/monitoring/video/tools/",
+        "label": "Explore video assist tools"
+      },
+      {
+        "id": "video-color",
+        "title": "Video scopes and image processing",
+        "copy": "Inspect the signal with video scopes and color palette analysis. Calibrate sources with Input Profiles, preview LUTs, and check composites and stereoscopic footage with the Color Keyer and 3D Preview.",
+        "slides": [
+          {
+            "title": "Video scopes",
+            "caption": "Compare waveform, vectorscope, and histogram views in one layout.",
+            "image": "video-scopes",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Input Profiles",
+            "caption": "Set each source's gamma, gamut, and color space transform once, then reuse it.",
+            "image": "input-profiles",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Color Palette",
+            "caption": "See the dominant colors and each color's share of the frame.",
+            "image": "color-palette",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Color Keyer",
+            "caption": "Inspect a keyed subject against transparency and a reference background.",
+            "image": "color-key",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Anaglyph preview",
+            "caption": "Preview stereoscopic depth using red/cyan anaglyph glasses.",
+            "image": "anaglyph",
+            "platform": "Mac",
+            "asset": null
+          }
+        ],
+        "link": "/docs/monitoring/video/",
+        "label": "Explore video monitoring"
+      }
+    ]
+  },
+  {
+    "id": "audio",
+    "number": "03",
+    "label": "Audio monitoring",
+    "title": "Audio mixing and analysis.",
+    "intro": "Combine multiple audio sources in a single mix, with six audio scopes for monitoring levels, loudness, stereo phase, and frequency content.",
+    "summary": "Multi-source audio mixing, six audio scopes, and BS.1770 loudness metering.",
+    "lead": {
+      "id": "audio-mixer",
+      "title": "Multi-source audio mixing",
+      "copy": "Mix camera audio, external microphones, and reference tracks in one place, with independent fader, pan, mute, and solo controls for each source. A master fader sets the stereo output level.",
+      "slides": [
+        {
+          "title": "Audio mixer",
+          "caption": "Multiple sources, channel controls, and the master output in one view.",
+          "image": "audio-mixer",
+          "platform": "Mac",
+          "asset": null
+        }
+      ],
+      "link": "/docs/monitoring/audio/mixer/",
+      "label": "Explore the audio mixer"
+    },
+    "cards": [
+      {
+        "id": "audio-loudness",
+        "title": "Loudness and true-peak metering",
+        "copy": "Loudness metering uses ITU-R BS.1770, with EBU R128 and ATSC A/85 (Short Form) delivery profiles. Track loudness over time and check true-peak levels before delivery.",
+        "slides": [
+          {
+            "title": "Loudness",
+            "caption": "Track loudness throughout a take and compare it with your delivery target.",
+            "image": "audio-loudness",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Levels",
+            "caption": "Track true peak and RMS levels, with a history of the take.",
+            "image": "audio-levels",
+            "platform": "Mac",
+            "asset": null
+          }
+        ],
+        "link": "/docs/monitoring/audio/scopes/loudness/",
+        "label": "Explore loudness"
+      },
+      {
+        "id": "audio-analysis",
+        "title": "Stereo and spectrum analysis",
+        "copy": "Check stereo balance and phase correlation with the goniometer. Band and FFT spectrum analyzers plot signal level by frequency, and the oscilloscope displays waveform shape and transients.",
+        "slides": [
+          {
+            "title": "Goniometer and oscilloscope",
+            "caption": "Check stereo balance and inspect the shape of the waveform.",
+            "image": "audio-stereo",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Band and FFT spectrum",
+            "caption": "See frequency content by band or in fine detail.",
+            "image": "audio-spectrum",
+            "platform": "Mac",
+            "asset": null
+          },
+          {
+            "title": "Six audio scopes",
+            "caption": "Every audio scope together in a single layout.",
+            "image": "audio-scopes",
+            "platform": "Mac",
+            "asset": null
+          }
+        ],
+        "link": "/docs/monitoring/audio/scopes/",
+        "label": "Explore audio scopes"
+      }
+    ]
+  },
+  {
+    "id": "recording",
+    "number": "04",
+    "label": "Recording & media",
+    "title": "Recording and media management.",
+    "intro": "Record clips with slate metadata and timecode, and save reference stills. Review takes in the Media Library and carry production details into DaVinci Resolve and Final Cut Pro.",
+    "summary": "10-bit HEVC and ProRes, external LTC, and slate-to-edit metadata.",
+    "lead": {
+      "id": "recording-slate",
+      "title": "Digital slates and timecode",
+      "copy": "Attach production, scene, and take information to each capture using reusable digital slates. External LTC supplies the starting timecode for each recording.",
+      "slides": [
+        {
+          "title": "Digital slate",
+          "caption": "Keep production, scene, and take details with each capture.",
+          "image": "slate",
+          "platform": "Mac",
+          "asset": null
+        }
+      ],
+      "link": "/docs/recording-media/slates/",
+      "label": "Explore slates"
+    },
+    "cards": [
+      {
+        "id": "recording-capture",
+        "title": "10-bit HEVC and ProRes recording",
+        "copy": "Record the camera input or the processed image in 10-bit HEVC or ProRes. Reference stills are saved alongside your clips in the Media Library for continuity checks.",
+        "slides": [
+          {
+            "title": "Capture controls",
+            "caption": "Snapshot, Slate, Record, and timecode sit together on the Status Toolbar.",
+            "image": "record-controls",
+            "platform": "Mac",
+            "asset": null
+          }
+        ],
+        "link": "/docs/recording-media/recording/",
+        "label": "Explore recording and capture"
+      },
+      {
+        "id": "recording-library",
+        "title": "From slate to edit",
+        "copy": "The Media Library shows recorded takes with their slate details, notes, and ratings. Embedded production metadata carries into DaVinci Resolve and Final Cut Pro, reducing manual entry during editing.",
+        "slides": [
+          {
+            "title": "Media library",
+            "caption": "Review your takes with ratings, notes, and slate details close at hand.",
+            "image": "media-library",
+            "platform": "Mac",
+            "asset": null
+          }
+        ],
+        "link": "/docs/recording-media/library/",
+        "label": "Explore the media library"
+      }
+    ]
+  }
+]

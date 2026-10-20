@@ -1,0 +1,66 @@
+{{ partial "site-header-assets.html" . }}
+{{ partial "brand-styles.html" . }}
+<!-- Shared CineMon typography: Inter body copy and Manrope headings. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+{{- /* Embedded mode detection. When the docs are loaded in the CineMon app's
+       WKWebView with ?<param>=<token>, strip the top bar to logo + search.
+       Runs in <head> before paint (no flash) and persists via sessionStorage so
+       in-site navigation keeps the minimal chrome. See custom.css .cm-embedded. */ -}}
+{{- with site.Params.embed }}
+<script>
+  (function () {
+    var KEY = "cm-embedded";
+    var PARAM = {{ .param | default "embed" }};
+    var TOKEN = {{ .token }};
+    function enabled() {
+      try {
+        var v = new URLSearchParams(window.location.search).get(PARAM);
+        if (v !== null) {
+          // Explicit signal in the URL: matching token turns embed mode ON,
+          // any other value (e.g. ?embed=off) turns it OFF. This lets you load
+          // the full site mid-session without closing the webview.
+          var on = v === TOKEN;
+          try { on ? sessionStorage.setItem(KEY, "1") : sessionStorage.removeItem(KEY); } catch (e) {}
+          return on;
+        }
+        // No param: fall back to the stored state for this session.
+        try { return sessionStorage.getItem(KEY) === "1"; } catch (e) { return false; }
+      } catch (e) { return false; }
+    }
+    if (enabled()) {
+      document.documentElement.classList.add("cm-embedded");
+    }
+  })();
+</script>
+{{- end }}
+
+<script>
+  // Keep overflowing reference tables discoverable and keyboard-scrollable.
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".content table").forEach(function (table) {
+      var hint = document.createElement("p");
+      hint.className = "cm-table-hint";
+      hint.textContent = "Scroll horizontally to see all columns.";
+      hint.hidden = true;
+      table.before(hint);
+      function update() {
+        var overflowing = table.scrollWidth > table.clientWidth + 1;
+        hint.hidden = !overflowing;
+        if (overflowing) {
+          table.setAttribute("tabindex", "0");
+        } else {
+          table.removeAttribute("tabindex");
+        }
+      }
+      update();
+      if (typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(update).observe(table);
+      } else {
+        window.addEventListener("resize", update);
+      }
+    });
+  });
+</script>

@@ -1,0 +1,5 @@
+User-agent: *
+{{ if hugo.IsProduction }}Allow: /
+Sitemap: {{ strings.TrimSuffix "/" site.Params.seo.canonicalBaseURL }}/sitemap.xml
+{{ else }}Disallow: /
+{{ end }}

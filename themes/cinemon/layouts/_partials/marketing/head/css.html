@@ -1,0 +1,20 @@
+{{ partial "brand-styles.html" . }}
+<!-- Fonts: Manrope (display) / Inter (body) / JetBrains Mono (timecode) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Tailwind CSS v4 processed via Hugo Pipes -->
+{{- with (templates.Defer (dict "key" "global")) -}}
+  {{- with resources.Get "css/main.css" -}}
+    {{- $opts := dict "minify" hugo.IsProduction -}}
+    {{- with . | css.TailwindCSS $opts -}}
+      {{- if hugo.IsProduction -}}
+        {{- with . | fingerprint -}}
+<link href="{{ .RelPermalink }}" rel="stylesheet" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+        {{- end -}}
+      {{- else -}}
+<link href="{{ .RelPermalink }}" rel="stylesheet">
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
