@@ -84,7 +84,7 @@ This global calibration describes the hardware path and is not stored in presets
 
 In External mode, CineMon shows the status of the incoming LTC. The settings screen shows the current state with a colored status dot, and the same colors appear on the toolbar timecode pill:
 
-- **No signal** (grey): no usable LTC is arriving.
+- **No signal** (gray): no usable LTC is arriving.
 - **Locking** (yellow): frames are arriving and CineMon is confirming a stable, trustworthy read. A counter shows progress.
 - **Chasing** (green): CineMon is following the external source frame by frame. This is the normal locked state. The dot turns yellow if the source's frame rate does not match your video source.
 - **Holdover** (orange): a brief automatic hold during a short dropout while chasing. If the signal returns quickly, CineMon goes back to chasing; otherwise it falls back to locking or no signal.

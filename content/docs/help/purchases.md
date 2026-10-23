@@ -132,7 +132,7 @@ All purchases go through Apple's App Store and are managed by your Apple ID.
 2. Select the Pack, bundle, or PRO Pass you want and complete the purchase through the standard App Store flow.
 3. If you have already purchased a Pack or subscribed and need to restore access on a new device, select **Restore Purchases** in the Store tab.
 
-> Packs are one-time purchases and do not expire. The PRO Pass remains active as long as your subscription is current. Cancelling a PRO Pass subscription removes access to PRO-only tools at the end of the current billing period, but any one-time Pack purchases you also own remain active.
+> Packs are one-time purchases and do not expire. The PRO Pass remains active as long as your subscription is current. Canceling a PRO Pass subscription removes access to PRO-only tools at the end of the current billing period, but any one-time Pack purchases you also own remain active.
 
 <!-- TODO(verify): confirm "Restore Purchases" button label matches the actual UI -->
 

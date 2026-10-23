@@ -27,7 +27,7 @@ Use the scope’s settings button to adjust the options described below.
 |---------|---------|
 | **M** (Momentary) | Loudness over the last 400 ms. Follows the performance moment to moment. |
 | **S** (Short-term) | Loudness over the last 3 seconds. The usual reading to mix against. |
-| **I** (Integrated) | Loudness of the whole measured programme, gated to ignore silence and quiet passages. This is the number a deliverable is judged on. |
+| **I** (Integrated) | Loudness of the whole measured program, gated to ignore silence and quiet passages. This is the number a deliverable is judged on. |
 | **TP** | True-peak level, in dBTP (decibels relative to full scale using true-peak measurement), estimates the reconstructed signal peak, including peaks between samples. The label shows a check when you are under the profile's ceiling and an arrow when you are over. |
 | **LRA** | Loudness range: how much the loudness varies across the program, in LU (loudness units). |
 | **Δ** | How far the current reading sits from your target. |

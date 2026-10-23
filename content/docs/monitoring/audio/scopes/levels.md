@@ -25,7 +25,7 @@ Use the scope’s settings button to adjust the options described below.
 
 A **peak hold** marker stays at the loudest recent value on each bar, which makes brief transients easy to catch. You choose how long it holds before falling back, and how quickly the bars themselves fall (the **Return Time**).
 
-The scope tracks the current **Peak**, **RMS**, and the session **Max**. Turn on **Detect True Peaks** to estimate the peak level of the reconstructed signal, including peaks between samples; the Peak readout is then labelled **TP**.
+The scope tracks the current **Peak**, **RMS**, and the session **Max**. Turn on **Detect True Peaks** to estimate the peak level of the reconstructed signal, including peaks between samples; the Peak readout is then labeled **TP**.
 
 Turn on **Show Readouts** to display those values beside the bars. The readout rail includes **Reset** (the circular arrow), which clears held maximums and history. Readouts are off by default.
 
@@ -56,7 +56,7 @@ Open the scope's settings with the slider button on the widget. The options are 
 
 | Setting | Options | Default | Description |
 |---------|---------|---------|-------------|
-| Detect True Peaks | `On` / `Off` | `Off` | Estimate true-peak level, including peaks between samples. The Peak readout is labelled **TP** when on. |
+| Detect True Peaks | `On` / `Off` | `Off` | Estimate true-peak level, including peaks between samples. The Peak readout is labeled **TP** when on. |
 | Show RMS Bars {{< pro-pill >}} | `On` / `Off` | `Off` | Draw the RMS bars alongside the peak bars. |
 | Hold Duration | `2 seconds` / `4 seconds` / `6 seconds` / `Infinite` | `2 seconds` | How long the peak marker holds before it falls back. |
 | Return Time | `4 dB/s` to `50 dB/s` | `11.8 dB/s` | How quickly the bars fall back after a peak. |
